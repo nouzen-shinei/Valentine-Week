@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day My Love 💗💗💗</title>
+    <link rel="stylesheet" href="quotes.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <iframe src="audio.html" style="display:none;" id="audio-frame"></iframe>
+    <div class="main">
+        <h2>* Choose the day *</h2>
+        <div class="container">
+            <a href="rose.html" class="day-link" data-date="2025-02-07">
+                <div class="rose-day day">
+                    <div class="icon">
+                        <lord-icon src="https://cdn.lordicon.com/jmeofbeb.json" trigger="hover"></lord-icon>
+                    </div>
+                    <div class="info">
+                        <h1 class="day-name">Rose Day</h1>
+                        <p class="date">Feb 07</p>
+                        <div class="countdown" id="countdown-rose"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="propose.html" class="day-link" data-date="2025-02-08">
+                <div class="propose-day day">
+                    <div class="icon">
+                        <lord-icon src="https://cdn.lordicon.com/etgnxeer.json" trigger="hover"></lord-icon>
+                    </div>
+                    <div class="info">
+                        <h1 class="day-name">Propose Day</h1>
+                        <p class="date">Feb 08</p>
+                        <div class="countdown" id="countdown-propose"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="chocolate.html" class="day-link" data-date="2025-02-09">
+                <div class="chocolate-day day">
+                    <div class="icon">
+                        <lord-icon src="https://cdn.lordicon.com/mlxonlmo.json" trigger="hover"></lord-icon>
+                    </div>
+                    <div class="info">
+                        <h1 class="day-name">Chocolate Day</h1>
+                        <p class="date">Feb 09</p>
+                        <div class="countdown" id="countdown-chocolate"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="teddy.html" class="day-link" data-date="2025-02-10">
+                <div class="teddy-day day">
+                    <div class="icon">
+                        <lord-icon src="https://cdn.lordicon.com/mlxonlmo.json" trigger="hover"></lord-icon>
+                    </div>
+                    <div class="info">
+                        <h1 class="day-name">Teddy Day</h1>
+                        <p class="date">Feb 10</p>
+                        <div class="countdown" id="countdown-teddy"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="promise.html" class="day-link" data-date="2025-02-11">
+                <div class="promise-day day">
+                    <div class="icon">
+                        <lord-icon src="https://cdn.lordicon.com/ibufipbp.json" trigger="hover"></lord-icon>
+                    </div>
+                    <div class="info">
+                        <h1 class="day-name">Promise Day</h1>
+                        <p class="date">Feb 11</p>
+                        <div class="countdown" id="countdown-promise"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="hug.html" class="day-link" data-date="2025-02-12">
+                <div class="hug-day day">
+                    <div class="icon">
+                        <lord-icon src="https://cdn.lordicon.com/etgnxeer.json" trigger="hover"></lord-icon>
+                    </div>
+                    <div class="info">
+                        <h1 class="day-name">Hug Day</h1>
+                        <p class="date">Feb 12</p>
+                        <div class="countdown" id="countdown-hug"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="kiss.html" class="day-link" data-date="2025-02-13">
+                <div class="kis-day day">
+                    <div class="icon">
+                        <lord-icon src="https://cdn.lordicon.com/etgnxeer.json" trigger="hover"></lord-icon>
+                    </div>
+                    <div class="info">
+                        <h1 class="day-name">Kiss Day</h1>
+                        <p class="date">Feb 13</p>
+                        <div class="countdown" id="countdown-kiss"></div>
+                    </div>
+                </div>
+            </a>
+            <a href="valentine.html" class="day-link" data-date="2025-02-14">
+                <div class="valentine-day day">
+                    <div class="icon">
+                        <lord-icon src="https://cdn.lordicon.com/etgnxeer.json" trigger="hover"></lord-icon>
+                    </div>
+                    <div class="info">
+                        <h1 class="day-name">Valentine Day</h1>
+                        <p class="date">Feb 14</p>
+                        <div class="countdown" id="countdown-valentine"></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="copyright-container">
+            <h3 class="copyright">Created with ❤️ by <a href="https://instagram.com/nouzen_shinei_">Shinei Nouzen</a>
+            </h3>
+        </div>
+    </div>
+
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dayLinks = document.querySelectorAll('.day-link');
+            const currentDate = new Date();
+
+            dayLinks.forEach(link => {
+                const dayDate = new Date(link.getAttribute('data-date'));
+                const countdownElement = link.querySelector('.countdown');
+
+                function updateCountdown() {
+                    const timeDiff = dayDate - currentDate;
+                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                    countdownElement.textContent = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+                    if (timeDiff < 0) {
+                        clearInterval(interval);
+                        countdownElement.textContent = 'This day is now available!';
+                    }
+                }
+
+                const interval = setInterval(updateCountdown, 2000);
+
+                link.addEventListener('click', function (event) {
+                    if (currentDate < dayDate) {
+                        event.preventDefault();
+                        countdownElement.textContent = 'This day is not yet available. Please wait...';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

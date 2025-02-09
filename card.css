@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bonheur+Royale&family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bonheur Royale', cursive;
+    text-decoration: none;
+}
+
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 1rem;
+}
+
+.main h2 {
+    color: var(--white);
+    letter-spacing: 2px;
+    font-size: 24px;
+    transform: rotate(-2deg);
+    border-bottom: 2px dotted var(--white);
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+:root {
+    --primary: #4be1ec;
+    --secondary: #cb5eee;
+    --white: #fff;
+    --gray: #9b9b9b;
+}
+
+a {
+    color: #e727aa;
+    letter-spacing: 2px;
+}
+
+body {
+    background: url(./assets/pexels-codioful-7135057.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px);
+}
+
+.main {
+    padding: 0 1rem;
+}
+
+.card {
+    height: 80vh;
+    width: 50%;
+    padding: 2rem;
+    margin: 2rem;
+    margin-top: 5rem;
+    border-radius: 1rem;
+    /* Remove rounded corners from the top left */
+    background-image: url(./assets/seth-reese-Tfd-XtAzQTA-unsplash.jpg);
+    color: #fff;
+    font-size: 1.3rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.card.propose {
+    background-image: url(./assets/pexels-scottwebb-136402.jpg);
+}
+
+.card.chocolate {
+    background-image: url(./assets/alexander-grey-8XkNFQG_cgk-unsplash.jpg);
+}
+
+.card.teddy {
+    background-image: url(./assets/pexels-bakkerhenk-754178.jpg);
+}
+
+.message {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(20px);
+    padding: 5rem 2rem;
+    border-radius: 0 1rem 1rem 1rem;
+    position: relative;
+    /* Add this line to make .rose position relative to .message */
+}
+
+#chosenQuote {
+    font-size: 2rem;
+    /* width: 60%; */
+    /* padding: 5rem; */
+}
+
+.rose {
+    position: absolute;
+    height: 8rem;
+    width: 8rem;
+    bottom: -2rem;
+    /* Move half of the height outside */
+    right: -3rem;
+    /* Move half of the width outside */
+}
+
+.rose.propose {
+    content: url(./assets/proposal.png);
+}
+
+.rose.chocolate {
+    height: 9rem;
+    width: 12rem;
+    content: url(./assets/lovechocolate.png);
+}
+
+.rose.teddy {
+    content: url(./assets/teddy.png);
+}
+
+.back {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    cursor: pointer;
+    z-index: 10;
+    /* Ensure it is above other elements */
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 10px 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back .material-symbols-outlined,
+.back .back-text {
+    color: #000;
+    transition: color 0.3s;
+}
+
+.back:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.back:hover .material-symbols-outlined,
+.back:hover .back-text {
+    color: #ff0000;
+    /* Change to your desired hover color */
+}
+
+.back .back-text {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+}
+
+.back-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+#spName,
+#fpName {
+    text-transform: capitalize;
+    letter-spacing: 2.5px;
+    color: rgb(246, 131, 246);
+}
+
+.copyright {
+    font-size: 1.5rem;
+    color: var(--white);
+    font-family: 'Protest';
+    transform: rotate(-1deg);
+    border-bottom: 2px dotted var(--white);
+    border-radius: 1rem;
+    padding: 0.4rem;
+}
+
+@media only screen and (max-width: 400px) {
+    .card {
+        width: 98%;
+        padding: 1rem;
+    }
+
+    #chosenQuote {
+        font-size: 1.3rem;
+        width: 70%;
+    }
+
+    .rose {
+        position: absolute;
+        height: 6rem;
+        width: 6rem;
+        bottom: -1.5rem;
+        /* Move half of the height outside */
+        right: -2rem;
+        /* Move half of the width outside */
+    }
+
+    .message {
+        width: 100%;
+    }
+}

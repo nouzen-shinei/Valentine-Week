@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Music</title>
+</head>
+
+<body>
+    <audio id="background-music" src="./assets/Kali Uchis - Moonlight (Official Lyric Video).mp3" loop></audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const audio = document.getElementById('background-music');
+            audio.play().catch(function (error) {
+                console.log('Autoplay was prevented:', error);
+                // Optionally, you can add a button to start the audio manually
+                const playButton = document.createElement('button');
+                playButton.innerText = 'Play Music';
+                playButton.addEventListener('click', function () {
+                    audio.play();
+                });
+                document.body.appendChild(playButton);
+            });
+        });
+    </script>
+</body>
+
+</html>

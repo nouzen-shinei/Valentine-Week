@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <link rel="stylesheet" href="./card.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <iframe src="audio.html" style="display:none;" id="audio-frame"></iframe>
+    <div class="main">
+        <div class="card">
+            <div class="message">
+                <div class="back-container">
+                    <a href="javascript:void(0);" id="go-back-button">
+                        <div class="back">
+                            <span class="material-symbols-outlined">arrow_back</span>
+                            <span class="back-text">Go back</span>
+                        </div>
+                    </a>
+                </div>
+                <h3 class="sp-name">Dear, <span id="spName"></span></h3>
+                <p id="chosenQuote">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt ratione atque nihil
+                    enim? Autem expedita perferendis repellendus totam doloribus. Tenetur adipisci sed quas fugit id,
+                    maiores est impedit optio et.</p>
+                <h3 class="fp-name">Yours, <span id="fpName"></span></h3>
+                <img src="./assets/rose.png" class="rose" alt="rose">
+            </div>
+        </div>
+        <div class="copyright-container">
+            <h3 class="copyright">Created with ❤️ by <a href="https://instagram.com/nouzen_shinei_">Shinei Nouzen</a>
+            </h3>
+        </div>
+    </div>
+
+    <script src="./card.js"></script>
+    <script src="./app.js" type="module"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const source = urlParams.get('source');
+            const cardElement = document.querySelector('.card');
+
+            if (source === 'propose') {
+                cardElement.classList.add('propose');
+            } else if (source === 'chocolate') {
+                cardElement.classList.add('chocolate');
+            } else if (source === 'teddy') {
+                cardElement.classList.add('teddy');
+            }
+        });
+
+        document.getElementById('go-back-button').addEventListener('click', function () {
+            window.history.back();
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (document.referrer.includes("propose.html")) {
+                document.querySelector(".rose").classList.add("propose");
+            } else if (document.referrer.includes("chocolate.html")) {
+                document.querySelector(".rose").classList.add("chocolate");
+            } else if (document.referrer.includes("teddy.html")) {
+                document.querySelector(".rose").classList.add("teddy");
+            }
+        });
+    </script>
+</body>
+
+</html>
