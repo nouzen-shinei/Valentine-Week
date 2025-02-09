@@ -123,6 +123,11 @@ lord-icon {
         padding: 1rem 0;
     }
 
+    .main h2 {
+        margin-top: 0;
+        font-size: 22px;
+    }
+
     lord-icon {
         width: 100px;
         height: 100px;
