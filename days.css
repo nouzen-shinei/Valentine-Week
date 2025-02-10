@@ -161,6 +161,42 @@ h3 {
     background-position: center;
 }
 
+.promise-right {
+    background: url(./assets/heart-3905176.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-position: center;
+}
+
+.hug-right {
+    background: url(./assets/couple-1853499.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-position: center;
+}
+
+.kiss-right {
+    background: url(./assets/man-1853532_1920.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-position: center;
+}
+
+.valentine-right {
+    background: url(./assets/couple-1934204_1920.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-position: center;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .right::-webkit-scrollbar {
     display: none;

@@ -86,6 +86,22 @@ body {
     background-image: url(./assets/pexels-bakkerhenk-754178.jpg);
 }
 
+.card.promise {
+    background-image: url(./assets/woman-3187620.jpg);
+}
+
+.card.hug {
+    background-image: url(./assets/couple-6823903_1920.jpg);
+}
+
+.card.kiss {
+    background-image: url(./assets/kiss-4349121_1920.jpg);
+}
+
+.card.valentine {
+    background-image: url(./assets/joel-overbeck-fGPGd9PFd3w-unsplash.jpg);
+}
+
 .message {
     width: 60%;
     display: flex;
@@ -127,6 +143,24 @@ body {
 
 .rose.teddy {
     content: url(./assets/teddy.png);
+}
+
+.rose.promise {
+    content: url(./assets/promise.png);
+}
+
+.rose.hug {
+    content: url(./assets/hug.png);
+}
+
+.rose.kiss {
+    content: url(./assets/kiss.png);
+    height: 10rem;
+    width: 8rem;
+}
+
+.rose.valentine {
+    content: url(./assets/valentine.png);
 }
 
 .back {
@@ -212,6 +246,11 @@ body {
         /* Move half of the height outside */
         right: -2rem;
         /* Move half of the width outside */
+    }
+
+    .rose.chocolate {
+        height: 7rem;
+        width: 9.4rem;
     }
 
     .message {

@@ -45,27 +45,37 @@
             const source = urlParams.get('source');
             const cardElement = document.querySelector('.card');
 
-            if (source === 'propose') {
-                cardElement.classList.add('propose');
-            } else if (source === 'chocolate') {
-                cardElement.classList.add('chocolate');
-            } else if (source === 'teddy') {
-                cardElement.classList.add('teddy');
+            switch (source) {
+                case 'propose':
+                case 'chocolate':
+                case 'teddy':
+                case 'promise':
+                case 'hug':
+                case 'kiss':
+                case 'valentine':
+                    cardElement.classList.add(source);
+                    break;
             }
-        });
 
-        document.getElementById('go-back-button').addEventListener('click', function () {
-            window.history.back();
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
             if (document.referrer.includes("propose.html")) {
                 document.querySelector(".rose").classList.add("propose");
             } else if (document.referrer.includes("chocolate.html")) {
                 document.querySelector(".rose").classList.add("chocolate");
             } else if (document.referrer.includes("teddy.html")) {
                 document.querySelector(".rose").classList.add("teddy");
+            } else if (document.referrer.includes("promise.html")) {
+                document.querySelector(".rose").classList.add("promise");
+            } else if (document.referrer.includes("hug.html")) {
+                document.querySelector(".rose").classList.add("hug");
+            } else if (document.referrer.includes("kiss.html")) {
+                document.querySelector(".rose").classList.add("kiss");
+            } else if (document.referrer.includes("valentine.html")) {
+                document.querySelector(".rose").classList.add("valentine");
             }
+        });
+
+        document.getElementById('go-back-button').addEventListener('click', function () {
+            window.history.back();
         });
     </script>
 </body>
