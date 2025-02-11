@@ -53,9 +53,9 @@ roseDay = [
 ];
 
 
-const userFname = "Vikrant";
+const userFname = "Shinei";
 fpName.innerText = userFname;
-const userSname = "Deepika";
+const userSname = "Lena";
 spName.innerText = userSname;
 
 const quotesNr = roseDay.length;

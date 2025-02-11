@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <iframe src="audio.html" style="display:none;" id="audio-frame"></iframe>
     <div class="main">
         <h2>* Choose the day *</h2>
         <div class="container">
@@ -123,6 +122,8 @@
         document.addEventListener('DOMContentLoaded', function () {
             const dayLinks = document.querySelectorAll('.day-link');
             const currentDate = new Date();
+            currentDate.setHours(currentDate.getHours() + 5);
+            currentDate.setMinutes(currentDate.getMinutes() + 30);
 
             dayLinks.forEach(link => {
                 const dayDate = new Date(link.getAttribute('data-date'));
@@ -150,6 +151,12 @@
                         event.preventDefault();
                         countdownElement.textContent = 'This day is not yet available. Please wait...';
                     }
+                });
+            });
+            
+            document.querySelectorAll('.day-link').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    window.parent.postMessage('startMusic', '*');
                 });
             });
         });

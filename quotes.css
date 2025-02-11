@@ -38,11 +38,11 @@ body {
 }
 
 .main h2 {
-    color: var(--white);
+    color: #515235;
     letter-spacing: 10px;
     font-size: 50px;
     transform: rotate(-2deg);
-    border-bottom: 2px dotted var(--white);
+    border-bottom: 2px dotted  #515235;
     border-radius: 1rem;
     padding: 0.5rem;
     margin-top: 2.5rem;
