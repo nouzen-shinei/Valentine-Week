@@ -10,8 +10,8 @@ const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const UsersInDB = ref(database,  'user');
 
-const fpNameStored = "Shinei";
-const spNameStored = "Lena";
+const fpNameStored = "Vikrant";
+const spNameStored = "Deepika";
 const storageQuote = localStorage.getItem("chosenQuote");
 
 const datas = { firstUser: fpNameStored, secondUser: spNameStored, quote: storageQuote };
