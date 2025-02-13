@@ -1,0 +1,78 @@
+/* 
+Wave svg credits - https://codepen.io/goodkatz/pen/LYPGxQz
+*/
+:root {
+  --dim-x: 80px;
+  --dim-y: 70px;
+  --cruve-height: 20px;
+}
+
+#myPath path {
+  transform: translate(0.125px, 0.033px);
+}
+
+/* Updated heart-wrap: using a pink drop-shadow */
+.heart-wrap {
+  cursor: pointer;
+  perspective: 200px;
+  filter: drop-shadow(0px 10px 10px rgba(245, 194, 199, 0.5)); /* pink drop shadow */
+  position: absolute;
+  bottom: 4.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Updated heart: using a pink radial gradient */
+.heart {
+  position: relative;
+  height: var(--dim-y);
+  width: var(--dim-x);
+  overflow: hidden;
+  clip-path: url(#myPath);
+  background-image: radial-gradient(#f5c2c7 60%, #ee8daf); /* pink gradient */
+}
+
+/* Updated tank: using a darker pink shade */
+.tank {
+  position: absolute;
+  bottom: 0;
+  height: 0;
+  width: var(--dim-x);
+  background-color: #ee82ee; /* dark pink */
+  z-index: 5;
+}
+
+.curve {
+  position: absolute;
+  bottom: calc(-1 * var(--cruve-height));
+  width: var(--dim-x);
+  height: var(--cruve-height);
+}
+.curve use {
+  animation: move 2s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.curve use:nth-child(1) {
+  animation-duration: 3s;
+}
+.curve use:nth-child(2) {
+  animation-duration: 4s;
+}
+.curve use:nth-child(3) {
+  animation-duration: 2s;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-90px);
+  }
+  100% {
+    transform: translateX(85px);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .heart-wrap {
+    bottom: 7rem;
+  }
+}

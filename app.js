@@ -8,14 +8,22 @@ const appSettings = {
 // Initialize Firebase
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
-const UsersInDB = ref(database,  'user');
-
-const fpNameStored = "Vikrant";
-const spNameStored = "Deepika";
-const storageQuote = localStorage.getItem("chosenQuote");
-
-const datas = { firstUser: fpNameStored, secondUser: spNameStored, quote: storageQuote };
+const UsersInDB = ref(database, 'user');
 
 document.addEventListener("DOMContentLoaded", function() {
-    push(UsersInDB,datas);
-})
+  // Fetch configuration from config.json
+  fetch('config.json')
+    .then(response => response.json())
+    .then(config => {
+      const fpNameStored = config.fpName;
+      const spNameStored = config.spName;
+      const storageQuote = localStorage.getItem("chosenQuote");
+      
+      const datas = { firstUser: fpNameStored, secondUser: spNameStored, quote: storageQuote };
+      
+      push(UsersInDB, datas);
+    })
+    .catch(error => {
+      console.error('Error loading config:', error);
+    });
+});

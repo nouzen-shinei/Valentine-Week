@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propose</title>
+   <!-- <meta name="description" content="My feelings for you in my life have only grown stronger since the day we first met. I want to seal our bond forever & today! I LOVE YOU!"> -->
+    <meta name="description" content=" You are the only one who understands me even more than myself. You are the only one with whom I can share everything, even my secrets. I want you to be with me always.! I LOVE YOU!">
+    <!-- Open Graph Image Meta Tag -->
+    <meta property="og:image" content="https://static.toiimg.com/thumb/msid-74004000,imgsize-511880,width-400,resizemode-4/74004000.jpg">
+    <link rel="shortcut icon" type="image/png" href="https://github.com/images/modules/search/mona-love.png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="parentElement">
+        <div class="d-flex justify-content-center">
+            <lottie-player src="https://assets10.lottiefiles.com/private_files/lf30_mywfoph1.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        </div>
+        <h1> Will you be Mine?🥰 </h1>
+        <div class="d-flex justify-content-center">
+<div class="button-container">
+            <button id="yesButton" onclick="propose()" class="btn btn-primary">Yes!</button>
+            <button id="noButton" onclick="moveNoButton()" class="btn btn-primary">No!</button>
+</div>
+        </div>
+    </div>
+
+    <div id="showMessage" class="position-absolute top-50 start-50 translate-middle">
+        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_utsfwa3k.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        <h1 class="ml6">
+            <span class="text-wrapper">
+                <span class="letters">I Love you!</span>
+            </span>
+        </h1>
+    </div>
+    <audio controls style="display: none;" id="noAudio">
+        <source src="assets/sounds/boom.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls style="display: none;" id="yesAudio">
+        <source src="assets/sounds/glitter.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

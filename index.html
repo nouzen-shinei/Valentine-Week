@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The title will be updated dynamically using config.json -->
     <title>Happy Valentine's Day My Love 💗💗💗</title>
     <link rel="stylesheet" href="quotes.css">
     <link rel="stylesheet"
@@ -13,7 +14,8 @@
             width: 35px;
             height: 35px;
             position: fixed;
-            top: 3.5vh; /* Default for larger screens: top right */
+            top: 3.5vh;
+            /* Default for larger screens: top right */
             right: 3.5vh;
             border-radius: 50%;
             background-color: rgba(0, 0, 0, 0.6);
@@ -94,7 +96,7 @@
         var musicDom = document.querySelector('.music');
         var audioDom = document.querySelector('.audio');
         var musicCloseDom = musicDom.querySelector('.music-close');
-        
+
         // Existing logic for audio on iOS/Android (if needed)
         if (audioDom.readyState == 4) { // Android-specific logic
             console.log('loaded');
@@ -144,6 +146,38 @@
                 }
             }
         }, false);
+
+        // Fetch configuration and update the document title dynamically.
+        fetch('config.json')
+            .then(response => response.json())
+            .then(config => {
+                // Update the title with the names from the configuration file.
+                document.title = `Happy Valentine's Day, ${config.fpName} & ${config.spName}`;
+            })
+            .catch(error => console.error('Error loading config:', error));
+
+            document.addEventListener('DOMContentLoaded', function () {
+        const musicAudio = document.getElementById('music'); // Ensure this is the correct element containing your music
+
+        // Listen for a message to stop the music
+        window.addEventListener('message', function (event) {
+            if (event.data === 'stopMusic') {
+                var audioDom = document.querySelector('.audio'); // Get the correct audio element
+                var musicCloseDom = document.querySelector('.music-close'); // Get the music icon element
+
+                if (audioDom && !audioDom.paused) {
+                    audioDom.pause();
+                    audioDom.currentTime = 0;
+                    console.log("Music stopped via message.");
+                }
+
+                // Remove the rotate class from the music icon
+                if (musicCloseDom) {
+                    musicCloseDom.classList.remove('rotate');
+                }
+            }
+        }, false);
+    });
     </script>
 </body>
 

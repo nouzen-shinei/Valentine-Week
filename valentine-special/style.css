@@ -1,0 +1,127 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+body {
+    /* Using old linear gradient background */
+    background: linear-gradient(116.82deg, #ff94e7 0%, #27cbff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 72px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.btn {
+    color: gray;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #ff4690;
+    border: 2px solid white;
+}
+
+@media (max-width: 1148px) {
+    h1 {
+        font-size: 50px;
+    }
+    .btn {
+        width: 150px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 795px) {
+    h1 {
+        font-size: 40px;
+    }
+}
+
+#showMessage {
+    display: none;
+}
+
+#showMessage h1 {
+    font-size: 50px;
+}
+
+/* Animate Text */
+.ml6 {
+    position: relative;
+}
+
+.ml6 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+}
+
+.ml6 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
+
+/* Footer */
+footer {
+    color: #fff;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.button-container {
+    position: relative;
+    width: 400px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+#yesButton {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#noButton {
+    position: absolute;
+    left: 250px; /* Adjust this value to place it beside the yesButton */
+    top: 0;
+}
+
+/* Adjust button positions for mobile devices */
+@media (max-width: 600px) {
+    .button-container {
+        width: 300px;
+        height: 60px;
+    }
+
+    #yesButton {
+        left: 0;
+    }
+
+    #noButton {
+        left: 160px; /* Adjust this value for mobile */
+    }
+}

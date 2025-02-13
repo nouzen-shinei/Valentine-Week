@@ -112,50 +112,62 @@
             </a>
         </div>
         <div class="copyright-container">
-            <h3 class="copyright">Created with ❤️ by <a href="https://instagram.com/nouzen_shinei_">Shinei Nouzen</a>
-            </h3>
+            <h3 class="copyright">Created with ❤️ by <a id="instagramProfileLink" href="#"><span id="instagramProfileName"></span></a></h3>
         </div>
     </div>
 
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Fetch config.json and update Instagram profile link
+            fetch('config.json')
+                .then(response => response.json())
+                .then(data => {
+                    const instagramProfileLink = document.getElementById('instagramProfileLink');
+                    const instagramProfileNameElement = document.getElementById('instagramProfileName');
+                    instagramProfileLink.href = `https://instagram.com/${data.instagramUsername}`;
+                    instagramProfileNameElement.textContent = data.instagramProfileName;
+                })
+                .catch(error => console.error('Error fetching config.json:', error));
+
+            // Countdown logic
             const dayLinks = document.querySelectorAll('.day-link');
             const currentDate = new Date();
-            currentDate.setHours(currentDate.getHours() + 5);
-            currentDate.setMinutes(currentDate.getMinutes() + 30);
 
             dayLinks.forEach(link => {
-                const dayDate = new Date(link.getAttribute('data-date'));
+                const dayDate = new Date(link.getAttribute('data-date') + 'T00:00:00+05:30'); // Adjust for IST
                 const countdownElement = link.querySelector('.countdown');
 
                 function updateCountdown() {
-                    const timeDiff = dayDate - currentDate;
+                    const timeDiff = dayDate - new Date(); // Use current time dynamically
+                    if (timeDiff <= 0) {
+                        countdownElement.textContent = 'This day is now available!';
+                        clearInterval(interval);
+                        return;
+                    }
+
                     const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
                     const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
                     countdownElement.textContent = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-                    if (timeDiff < 0) {
-                        clearInterval(interval);
-                        countdownElement.textContent = 'This day is now available!';
-                    }
                 }
 
-                const interval = setInterval(updateCountdown, 2000);
+                const interval = setInterval(updateCountdown, 1000);
+                updateCountdown(); // Initial call
 
                 link.addEventListener('click', function (event) {
-                    if (currentDate < dayDate) {
+                    if (new Date() < dayDate) {
                         event.preventDefault();
                         countdownElement.textContent = 'This day is not yet available. Please wait...';
                     }
                 });
             });
-            
+
+            // Music playback logic
             document.querySelectorAll('.day-link').forEach(link => {
-                link.addEventListener('click', function(event) {
+                link.addEventListener('click', function (event) {
                     window.parent.postMessage('startMusic', '*');
                 });
             });
