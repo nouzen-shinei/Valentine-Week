@@ -67,7 +67,7 @@
             </clipPath>
         </svg>
         <div class="copyright-container" style="margin-top: 20px;">
-            <h3 class="copyright">Created with ❤️ by <a id="instagramProfileLink" href="#"><span id="instagramProfileName"></span></a></h3>
+            <h3 class="copyright">Created with ❤️ by <a id="instagramProfileLink" href="#" target="_blank"><span id="instagramProfileName"></span></a></h3>
         </div>
     </div>
     <script src="./quotesValentineDay.js"></script>
@@ -77,32 +77,44 @@
     <script>
         // JavaScript to handle the tank filling animation and redirection
         document.addEventListener('DOMContentLoaded', function () {
-            const tank = document.querySelector('.tank');
-            const heartWrap = document.querySelector('.heart-wrap');
-            const fillDuration = 50; // Duration in milliseconds for each fill
-            let clickCount = 0;
+        const tank = document.querySelector('.tank');
+        const heartWrap = document.querySelector('.heart-wrap');
+        const fillDuration = 50; // Duration in milliseconds for each fill
+        let clickCount = 0;
 
-            // Add click event listener to the heart-wrap to start the tank filling
-            heartWrap.addEventListener('click', function () {
-                clickCount++;
-                if (clickCount <= 3) {
-                    // Calculate the height to fill based on the number of clicks
-                    const fillHeight = (clickCount / 3) * 100;
-                    // Animate the tank filling
-                    tank.style.transition = `height ${fillDuration}ms ease-in-out`;
-                    tank.style.height = `${fillHeight}%`;
+        heartWrap.addEventListener('click', function () {
+            clickCount++;
+            if (clickCount <= 3) {
+                const fillHeight = (clickCount / 3) * 100;
+                tank.style.transition = `height ${fillDuration}ms ease-in-out`;
+                tank.style.height = `${fillHeight}%`;
 
-                    // Redirect after the tank is filled on the third click
-                    if (clickCount === 3) {
-                        setTimeout(() => {
-                    // Send a message to the parent window to stop the music
-                        window.parent.postMessage('stopMusic', '*');
-                            window.location.href = './valentine-special/index.html';
-                        }, fillDuration);
-                    }
+                if (clickCount === 3) {
+                    setTimeout(() => {
+                        // Access the parent window and stop the music directly
+                        const parentWindow = window.parent;
+                        if (parentWindow) {
+                            const parentAudio = parentWindow.document.querySelector('.audio');
+                            const parentMusicIcon = parentWindow.document.querySelector('.music-close');
+
+                            if (parentAudio && !parentAudio.paused) {
+                                parentAudio.pause();
+                                parentAudio.currentTime = 0;
+                                console.log("Music stopped directly in parent window.");
+                            }
+
+                            if (parentMusicIcon) {
+                                parentMusicIcon.classList.remove('rotate');
+                            }
+                        }
+
+                        // Redirect to the third index.html
+                        window.location.href = './valentine-special/index.html';
+                    }, fillDuration);
                 }
-            });
+            }
         });
+    });
     </script>
 </body>
 

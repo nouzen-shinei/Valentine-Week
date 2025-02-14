@@ -131,3 +131,11 @@ anime.timeline({ loop: true })
         easing: "easeOutExpo",
         delay: 1000,
     });
+    document.addEventListener('DOMContentLoaded', function () {
+        // Send a message to the parent window to stop the music (fallback)
+        if (window.parent) {
+            window.parent.postMessage('stopMusic', '*');
+            console.log("Stop music message sent to parent (fallback).");
+        }
+    });
+    

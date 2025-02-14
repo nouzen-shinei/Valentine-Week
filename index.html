@@ -157,17 +157,15 @@
             .catch(error => console.error('Error loading config:', error));
 
             document.addEventListener('DOMContentLoaded', function () {
-        const musicAudio = document.getElementById('music'); // Ensure this is the correct element containing your music
+        const audioDom = document.querySelector('.audio'); // Get the audio element
+        const musicCloseDom = document.querySelector('.music-close'); // Get the music icon element
 
         // Listen for a message to stop the music
         window.addEventListener('message', function (event) {
             if (event.data === 'stopMusic') {
-                var audioDom = document.querySelector('.audio'); // Get the correct audio element
-                var musicCloseDom = document.querySelector('.music-close'); // Get the music icon element
-
-                if (audioDom && !audioDom.paused) {
-                    audioDom.pause();
-                    audioDom.currentTime = 0;
+                if (audioDom) {
+                    audioDom.pause(); // Pause the audio
+                    audioDom.currentTime = 0; // Reset the audio to the beginning
                     console.log("Music stopped via message.");
                 }
 
