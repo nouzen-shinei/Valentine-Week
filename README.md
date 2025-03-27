@@ -82,3 +82,7 @@ Special thanks to [Lordicon](https://lordicon.com/), [Anime.js](https://animejs.
 ---
 
 Enjoy celebrating love with this unique, interactive Valentine Project!
+<!-- Sources -->
+<!-- https://codepen.io/saranya-mohan/pen/JjXdobY -->
+<!-- https://github.com/zxdhiru/valentine -->
+
